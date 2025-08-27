@@ -989,11 +989,11 @@ The Eight Blessings from the Sermon on the P2P Mount
                   {/* Progress Section */}
                   <div className="grid grid-cols-2 gap-3">
                     <div className="text-center p-3 bg-transparent rounded-lg transform scale-120">
-                      <p className="text-sm font-bold text-green-400 mb-1">$592.5K / $800K</p>
+                      <p className="text-sm font-bold text-green-400 mb-1">$582.5K / $800K</p>
                       <p className="text-gray-300 text-xs font-bold">USDT RAISED</p>
                     </div>
                     <div className="text-center p-3 bg-transparent rounded-lg transform scale-120">
-                      <p className="text-sm font-bold text-blue-400 mb-1">7.41B / 10.0B</p>
+                      <p className="text-sm font-bold text-blue-400 mb-1">7.28B / 10.0B</p>
                       <p className="text-gray-300 text-xs font-bold">TOKENS SOLD</p>
                     </div>
                   </div>
@@ -1003,7 +1003,7 @@ The Eight Blessings from the Sermon on the P2P Mount
                     <div className="w-full h-10 bg-gray-700 rounded-full overflow-hidden">
                       <div
                         className="h-full bg-yellow-400 rounded-full relative"
-                        style={{width: `74.1%`}}
+                        style={{width: `72.8%`}}
                       >
                         {/* 불꽃 효과 - 모바일용 */}
                         {progressPercentage > 3 && (
@@ -1020,7 +1020,7 @@ The Eight Blessings from the Sermon on the P2P Mount
                     </div>
                     {/* Percentage text */}
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="font-bold text-xs text-white px-2 py-0.5 rounded-full" style={{fontFamily: 'Montserrat, sans-serif'}}>74.1%</span>
+                      <span className="font-bold text-xs text-white px-2 py-0.5 rounded-full" style={{fontFamily: 'Montserrat, sans-serif'}}>72.8%</span>
                     </div>
                   </div>
 
