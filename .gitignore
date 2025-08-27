@@ -1,0 +1,32 @@
+# Node / Next.js
+node_modules/
+.next/
+out/
+dist/
+
+# Env files
+.env
+.env.*
+*.local
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# OS / Editor
+.DS_Store
+*.swp
+*.swo
+
+# TypeScript
+*.tsbuildinfo
+
+# Package managers
+bun.lockb
+
+# Framework / hosting
+.vercel
+.netlify/
