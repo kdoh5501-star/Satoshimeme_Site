@@ -51,8 +51,16 @@ export async function POST(request: NextRequest) {
 
     if (error) {
       console.error('Error inserting data:', error);
+      // TEMP: return detailed error for debugging deployment issues
+      const err: any = error as any;
       return NextResponse.json(
-        { error: 'Failed to submit application' },
+        {
+          error: 'DB insert failed',
+          code: err?.code ?? null,
+          message: err?.message ?? null,
+          details: err?.details ?? null,
+          hint: err?.hint ?? null,
+        },
         { status: 500 }
       );
     }
