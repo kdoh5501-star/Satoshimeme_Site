@@ -21,7 +21,6 @@ export default function Home() {
     formatTokenAmount,
     formatCurrency
   } = usePresaleData();
-
   
   const [showChronicleModal, setShowChronicleModal] = useState(false);
   const [selectedChronicle, setSelectedChronicle] = useState<{
