@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@supabase/supabase-js';
+import { createClient, type PostgrestError } from '@supabase/supabase-js';
 
 export async function POST(request: NextRequest) {
   try {
@@ -52,7 +52,7 @@ export async function POST(request: NextRequest) {
     if (error) {
       console.error('Error inserting data:', error);
       // TEMP: return detailed error for debugging deployment issues
-      const err: any = error as any;
+      const err = error as PostgrestError;
       return NextResponse.json(
         {
           error: 'DB insert failed',
