@@ -259,7 +259,7 @@ export default function AirdropPage() {
               <span className="text-xl sm:text-3xl lg:text-4xl animate-bounce delay-100">🚀</span>
             </div>
             <p className="text-sm sm:text-base lg:text-lg text-gray-600 max-w-5xl mx-auto leading-relaxed px-2">
-              Join 5,000 lucky participants and claim your 31,278 SATOSHI tokens completely free!
+              Join 5,000 lucky participants and claim your 10,000 SATOSHI tokens completely free!
             </p>
           </div>
 
