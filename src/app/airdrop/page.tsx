@@ -1,3 +1,10 @@
+<form name="airdrop" netlify netlify-honeypot="bot-field" hidden>
+  <input type="text" name="walletAddress" />
+  <input type="email" name="email" />
+  <input type="text" name="userAgent" />
+  <input type="text" name="timestamp" />
+</form>
+
 'use client';
 
 import { useState } from 'react';
