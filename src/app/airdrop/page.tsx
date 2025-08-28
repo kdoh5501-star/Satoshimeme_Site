@@ -276,7 +276,7 @@ export default function AirdropPage() {
                 {/* Main Benefits - Mobile Optimized */}
                 <div className="mb-4 sm:mb-8">
                   <div className="text-xl sm:text-3xl font-black text-gray-800 mb-1 sm:mb-2 leading-tight">
-                    31,278 SATOSHI TOKENS
+                    10,000 SATOSHI TOKENS
                   </div>
                   <div className="text-sm sm:text-lg text-gray-600 mb-2 sm:mb-4">per person</div>
                   <div className="text-sm sm:text-lg font-semibold text-orange-600">
