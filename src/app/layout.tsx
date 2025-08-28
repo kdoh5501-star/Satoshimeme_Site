@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { EB_Garamond, Cinzel } from "next/font/google";
 import "./globals.css";
 
@@ -132,61 +133,49 @@ export default function RootLayout({
         <meta name="keywords" content="Satoshi Nakamoto, Bitcoin, Cryptocurrency, Meme Coin, Blockchain, P2P, Decentralization, MicroBitcoin" />
 
         {/* Google Tag Manager */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        <Script id="gtm-init" strategy="afterInteractive">
+          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
             new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
             j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','${process.env.NEXT_PUBLIC_GTM_ID || 'GTM-XXXXXXX'}');`
-          }}
-        />
+            })(window,document,'script','dataLayer','${process.env.NEXT_PUBLIC_GTM_ID || 'GTM-XXXXXXX'}');`}
+        </Script>
         {/* End Google Tag Manager */}
 
         {/* Google tag (gtag.js) */}
-        <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ADS_ID || 'AW-17384712576'}`}></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ADS_ID || 'AW-17384712576'}');
-            `
-          }}
-        />
+        <Script id="gtag-src" async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ADS_ID || 'AW-17384712576'}`}/>
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ADS_ID || 'AW-17384712576'}');`}
+        </Script>
 
         {/* Event snippet for 페이지 조회 conversion */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              function gtag_report_conversion(url) {
-                var callback = function () {
-                  if (typeof(url) != 'undefined') {
-                    window.location = url;
-                  }
-                };
-                gtag('event', 'conversion', {
-                    'send_to': 'AW-17384712576/VwpsCLS79_UaEIDT1uFA',
-                    'value': 1.0,
-                    'currency': 'KRW',
-                    'event_callback': callback
-                });
-                return false;
-              }
-
-              // Airdrop 신청 컨버전 트래킹
-              function gtag_report_airdrop_conversion() {
-                gtag('event', 'conversion', {
-                    'send_to': 'AW-17384712576/airdrop_submission',
-                    'value': 1.0,
-                    'currency': 'KRW'
-                });
-                return false;
-              }
-            `
-          }}
-        />
+        <Script id="gtag-events" strategy="afterInteractive">
+          {`function gtag_report_conversion(url) {
+              var callback = function () {
+                if (typeof(url) != 'undefined') {
+                  window.location = url;
+                }
+              };
+              gtag('event', 'conversion', {
+                  'send_to': 'AW-17384712576/VwpsCLS79_UaEIDT1uFA',
+                  'value': 1.0,
+                  'currency': 'KRW',
+                  'event_callback': callback
+              });
+              return false;
+            }
+            function gtag_report_airdrop_conversion() {
+              gtag('event', 'conversion', {
+                  'send_to': 'AW-17384712576/airdrop_submission',
+                  'value': 1.0,
+                  'currency': 'KRW'
+              });
+              return false;
+            }`}
+        </Script>
         {/* End Google tag (gtag.js) */}
       </head>
       <body className={`${ebGaramond.variable} ${cinzel.variable} font-serif antialiased`}>
