@@ -20,21 +20,22 @@ export default function AirdropPage() {
     console.log('Starting submission...'); // 디버깅용
 
     try {
-      // Google Sheets에 데이터 저장
-      const response = await fetch('/api/submit-airdrop', {
+      // Netlify Forms로 전송 (엑셀/CSV는 Netlify 대시보드에서 다운로드)
+      const payload = new URLSearchParams({
+        'form-name': 'airdrop',
+        walletAddress: walletAddress.trim(),
+        email: (email || '').trim(),
+        userAgent: typeof window !== 'undefined' ? window.navigator.userAgent : 'unknown',
+        timestamp: new Date().toISOString(),
+      }).toString();
+
+      const response = await fetch('/', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          walletAddress: walletAddress.trim(),
-          email: email.trim() || null,
-        }),
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: payload,
       });
 
-      console.log('API Response:', response.status); // 디버깅용
-      const result = await response.json();
-      console.log('API Result:', result); // 디버깅용
+      console.log('Netlify Forms Response:', response.status);
 
       if (response.ok) {
         // Google Ads 컨버전 트래킹 실행 (더 안전하게)
@@ -57,9 +58,9 @@ export default function AirdropPage() {
         alert('🎉 Application Completed! Your airdrop will be distributed within 24 hours.');
         setWalletAddress('');
         setEmail('');
-        console.log('Application submitted successfully:', result);
+        console.log('Application submitted successfully (Netlify Forms)');
       } else {
-        console.error('Application submission failed:', result);
+        console.error('Application submission failed (Netlify Forms)');
         alert('❌ Submission failed. Please try again.');
       }
     } catch (error) {
