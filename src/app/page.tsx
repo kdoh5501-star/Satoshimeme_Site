@@ -5,8 +5,10 @@ import { Card } from "@/components/ui/card";
 import { TokenomicsChart } from "@/components/TokenomicsChart";
 import { usePresaleData } from "@/hooks/usePresaleData";
 import React, { useState, useRef, useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isExplorerOpen, setIsExplorerOpen] = useState(false);
 
@@ -612,8 +614,8 @@ The Eight Blessings from the Sermon on the P2P Mount
                     console.log('Conversion tracking function not available');
                   }
                 }
-                // Show airdrop page popup
-                setShowAirdropPopup(true);
+                // Navigate directly to the airdrop page
+                router.push('/airdrop');
               }}
             >
               <img
