@@ -143,7 +143,7 @@ export default function AirdropPage() {
             FREE AIRDROP EVENT
           </h1>
           <p className="text-lg sm:text-2xl md:text-3xl lg:text-4xl text-yellow-400 mb-6 sm:mb-12 font-semibold px-2 drop-shadow-xl" style={{textShadow: '2px 2px 6px rgba(0,0,0,0.7)'}}>
-            Get 31,278 SATOSHI Tokens
+            Get 10,000 SATOSHI Tokens
           </p>
           <button
             onClick={scrollToForm}
@@ -164,7 +164,7 @@ export default function AirdropPage() {
               FREE AIRDROP EVENT
             </h1>
             <p className="text-lg text-yellow-400 font-semibold drop-shadow-xl" style={{textShadow: '2px 2px 6px rgba(0,0,0,0.7)'}}>
-              Get 31,278 SATOSHI Tokens
+              Get 10,000 SATOSHI Tokens
             </p>
             <button
               onClick={scrollToForm}
