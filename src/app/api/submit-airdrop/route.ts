@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient, type PostgrestError } from '@supabase/supabase-js';
 
+// Ensure Node.js runtime for Supabase client
+export const runtime = 'nodejs';
+
 export async function POST(request: NextRequest) {
   try {
     const { walletAddress, email } = await request.json();
@@ -84,9 +87,13 @@ export async function POST(request: NextRequest) {
     );
 
   } catch (error) {
-    console.error('Error submitting airdrop application:', error);
+    const err = error as { message?: string; stack?: string } | unknown;
+    console.error('Error submitting airdrop application:', err);
     return NextResponse.json(
-      { error: 'Failed to submit application' },
+      {
+        error: 'Unhandled server error',
+        message: (err as { message?: string })?.message ?? null,
+      },
       { status: 500 }
     );
   }
