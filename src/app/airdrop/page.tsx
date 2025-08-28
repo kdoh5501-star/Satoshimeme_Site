@@ -20,38 +20,19 @@ export default function AirdropPage() {
     console.log('Starting submission...'); // 디버깅용
 
     try {
-      // Netlify Forms: 네이티브 폼 제출로 전환 (감지/수집 신뢰도 최고)
-      if (typeof window !== 'undefined') {
-        const form = document.createElement('form');
-        form.method = 'POST';
-        // Submit to a guaranteed static HTML file so Netlify Forms always captures it
-        form.action = '/netlify-forms.html';
-        form.style.display = 'none';
-        form.setAttribute('data-netlify', 'true');
-        form.setAttribute('netlify-honeypot', 'bot-field');
-        form.setAttribute('accept-charset', 'UTF-8');
+      // Supabase API로 전송 복귀
+      const response = await fetch('/api/submit-airdrop', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          walletAddress: walletAddress.trim(),
+          email: (email || '').trim() || null,
+        }),
+      });
 
-        const add = (name: string, value: string) => {
-          const input = document.createElement('input');
-          input.type = 'hidden';
-          input.name = name;
-          input.value = value;
-          form.appendChild(input);
-        };
+      const result = await response.json().catch(() => ({}));
 
-        add('form-name', 'airdrop');
-        add('walletAddress', walletAddress.trim());
-        add('email', (email || '').trim());
-        add('userAgent', window.navigator.userAgent);
-        add('timestamp', new Date().toISOString());
-        add('bot-field', '');
-
-        document.body.appendChild(form);
-        form.submit();
-      }
-
-      // 네이티브 제출은 페이지 이동이 일어나므로 아래 코드는 보조용
-      {
+      if (response.ok) {
         // Google Ads 컨버전 트래킹 실행 (더 안전하게)
         try {
           if (typeof window !== 'undefined') {
@@ -72,7 +53,10 @@ export default function AirdropPage() {
         alert('🎉 Application Completed! Your airdrop will be distributed within 24 hours.');
         setWalletAddress('');
         setEmail('');
-        console.log('Application submitted successfully (Netlify Forms)');
+        console.log('Application submitted successfully:', result);
+      } else {
+        console.error('Application submission failed:', result);
+        alert('❌ Submission failed. Please try again.');
       }
     } catch (error) {
       console.error('Error submitting application:', error);
