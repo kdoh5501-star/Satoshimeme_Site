@@ -24,11 +24,12 @@ export default function AirdropPage() {
       if (typeof window !== 'undefined') {
         const form = document.createElement('form');
         form.method = 'POST';
-        // Submit to the same static page that contains the detected form
-        form.action = '/airdrop';
+        // Submit to a guaranteed static HTML file so Netlify Forms always captures it
+        form.action = '/netlify-forms.html';
         form.style.display = 'none';
         form.setAttribute('data-netlify', 'true');
         form.setAttribute('netlify-honeypot', 'bot-field');
+        form.setAttribute('accept-charset', 'UTF-8');
 
         const add = (name: string, value: string) => {
           const input = document.createElement('input');
