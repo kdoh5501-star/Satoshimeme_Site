@@ -1,10 +1,3 @@
-<form name="airdrop" netlify netlify-honeypot="bot-field" hidden>
-  <input type="text" name="walletAddress" />
-  <input type="email" name="email" />
-  <input type="text" name="userAgent" />
-  <input type="text" name="timestamp" />
-</form>
-
 'use client';
 
 import { useState } from 'react';
@@ -105,6 +98,14 @@ export default function AirdropPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-100">
+     <form name="airdrop" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input type="hidden" name="form-name" value="airdrop" />
+  <input type="text" name="walletAddress" />
+  <input type="email" name="email" />
+  <input type="text" name="userAgent" />
+  <input type="text" name="timestamp" />
+  <input type="text" name="bot-field" />
+</form>
       {/* Header Section - Video Background */}
       <header className="relative overflow-hidden bg-gradient-to-r from-yellow-100 to-orange-100 min-h-[100svh] flex items-center justify-center">
         {/* Background Video - Responsive */}
