@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Netlify Forms Probe</title>
+  </head>
+  <body>
+    <!-- Hidden static form so Netlify detects it during build (Next.js App Router workaround) -->
+    <form name="airdrop" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="airdrop" />
+      <input type="text" name="walletAddress" />
+      <input type="email" name="email" />
+      <input type="text" name="userAgent" />
+      <input type="text" name="timestamp" />
+      <input type="text" name="bot-field" />
+    </form>
+  </body>
+  </html>
+
+
