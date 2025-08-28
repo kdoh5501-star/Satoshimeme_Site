@@ -1,5 +1,7 @@
 "use client";
 
+// deploy trigger
+
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { TokenomicsChart } from "@/components/TokenomicsChart";
