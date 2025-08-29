@@ -20,13 +20,13 @@ export const metadata: Metadata = {
   description: "Continue the sacred teachings of Proof of Work given to us by Satoshi. Join the movement of true believers in decentralized truth and mathematical proof.",
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon/favicon.ico", sizes: "any" },
+      { url: "/favicon/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon/favicon-32x32.png", sizes: "32x32", type: "image/png" },
     ],
-    shortcut: "/favicon.ico",
+    shortcut: "/favicon/favicon.ico",
     apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+      { url: "/favicon/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
     ],
   },
   openGraph: {
@@ -69,15 +69,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
-        <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
-        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/png" href="/favicon/favicon-16x16.png" sizes="16x16" />
+        <link rel="icon" type="image/png" href="/favicon/favicon-32x32.png" sizes="32x32" />
+        <link rel="shortcut icon" href="/favicon/favicon.ico" />
 
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+        <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png" sizes="180x180" />
 
-        <link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192" />
-        <link rel="icon" type="image/png" href="/android-chrome-512x512.png" sizes="512x512" />
+        <link rel="icon" type="image/png" href="/favicon/android-chrome-192x192.png" sizes="192x192" />
+        <link rel="icon" type="image/png" href="/favicon/android-chrome-512x512.png" sizes="512x512" />
 
         <meta name="theme-color" content="#FBBF24" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
